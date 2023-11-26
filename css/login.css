@@ -1,0 +1,108 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://t.mwm.moe/fj);
+    background-size: cover;
+}
+input,.txt{
+  font-size: 1.1em;
+}
+input{
+  color: #fff;
+}
+#login{
+    width: 550px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255,255,255,.7),
+        rgba(255,255,255,.5),
+        rgba(255,255,255,.4),
+    );
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #fff;
+    border-radius: 15px;
+}
+#table{
+    font: 900 40px '';
+    text-align: center;
+    letter-spacing: 5px;
+    color: #3d3d3d;
+}
+#box{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+#box input{
+    width: 400px;
+    height: 100%;
+    margin-bottom: 20px;
+    outline: none;
+    border: 0;
+    padding: 10px;
+
+    background-color: transparent;
+    border-bottom: 3px solid #fff;
+    font: 900 16px;
+}
+.go{
+    text-align: center;
+    display: block;
+    height: 24px;
+    padding: 12px;
+    font: 900 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #fff;
+    letter-spacing: 3px;
+    background-image: linear-gradient(90deg,#03a9f4, #f441a5, #ffeb3b, 
+    #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+}
+.go:hover{
+    animation: animate 8s linear infinite alternate;
+}
+@keyframes animate{
+    0%{
+      background-position: 0%; /*修改背景定位，实现渐变色炫光*/
+    }
+    50%{
+      background-position: 100%;
+    }
+    100%{
+      background-position: 0%;
+    }
+  }
+  .go::before{ /*之前添加*/
+    content: ''; /*内容*/
+    position: absolute; /*绝对定位*/
+    top:-5px; /*当设置对立的2个定位属性时，元素的大小将由对立的大小决定*/
+    left: -5px;
+    right: -5px;
+    bottom: -5px; /*当设置对立的2个定位属性时，元素的大小将由对立的大小决定*/
+    z-index: -1; 
+    background: linear-gradient(
+      90deg,#03a9f4, #f441a5, #ffeb3b, #03a9f4, 
+    #f441a5, #ffeb3b, #03a9f4);
+    border-radius: 40px;
+    background-size: 400%;
+    filter: blur(20px); /*过渡：模糊*/
+    opacity: 0; /*透明度*/
+    transition: 1s; /*过渡时间*/
+  }
+  .go:hover::before{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite; /*注意动画名称统一*/
+  }
